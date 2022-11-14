@@ -4,18 +4,19 @@ import psycopg2
 
 def create_tables():
 	""" create tables in the PostgreSQL database"""
-	# commands = (
-	# 	"""
-	# 	CREATE TABLE students (
-	# 		student_id SERIAL PRIMARY KEY,
-	# 		student_name VARCHAR(255) NOT NULL
-	# 	)
-	# 	""",
-	# 	""" CREATE TABLE teachers (
-	# 			teacher_id SERIAL PRIMARY KEY,
-	# 			teacher_name VARCHAR(255) NOT NULL
-	# 			)
-	# 	""")
+	commands = (
+		"""
+ 		
+		CREATE TABLE IF NOT EXISTS public.students (
+			student_id SERIAL PRIMARY KEY,
+			student_name VARCHAR(255) NOT NULL
+		)
+		""",
+		""" CREATE TABLE IF NOT EXISTS public.teachers (
+				teacher_id SERIAL PRIMARY KEY,
+				teacher_name VARCHAR(255) NOT NULL
+				)
+		""")
 	conn = psycopg2.connect(
 	host="localhost",
 	database="PyCoders",
@@ -23,22 +24,18 @@ def create_tables():
 	password="postgres")
 	try:
 		cur = conn.cursor()
-		# for command in commands:
-		# 	cur.execute(command)
-		postgres_insert_query = """ INSERT INTO students (student_id, student_name) VALUES (%s,%s)"""
-		postgres_insert_query2 = """ INSERT INTO teachers (teacher_id, teacher_name) VALUES (%s,%s)"""
-		student_list=['sefa','saffet','ilter']
-		a=1
+		for command in commands:
+			cur.execute(command)
+   
+		student_list=['sefa','saffet','ilter']		
 		for i in student_list:
-			record_to_insert = (a, i)
-			cur.execute(postgres_insert_query, record_to_insert)
-			a+=1
+			postgres_insert_query = f""" INSERT INTO students (student_name) VALUES ('{i}')"""
+			cur.execute(postgres_insert_query)
+   			
 		teacher_list=['irfan','semih','irem']
-		a=1
 		for i in teacher_list:
-			record_to_insert = (a, i)
-			cur.execute(postgres_insert_query2, record_to_insert)
-			a+=1
+			postgres_insert_query2 = f""" INSERT INTO teachers (teacher_name) VALUES ('{i}')"""
+			cur.execute(postgres_insert_query2)
 		cur.close()
 		conn.commit()
 	except (Exception, psycopg2.DatabaseError) as error:
@@ -46,7 +43,6 @@ def create_tables():
 	finally:
 		if conn is not None:
 			conn.close()
-
 
 if __name__ == '__main__':
 	create_tables()
