@@ -1,0 +1,54 @@
+[
+    {
+        "label": "psycopg2",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "psycopg2",
+        "description": "psycopg2",
+        "detail": "psycopg2",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "sleep",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "sleep",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "connect",
+        "kind": 2,
+        "importPath": "exercise4",
+        "description": "exercise4",
+        "peekOfCode": "def connect():\n    connection = None\n    sleep(0.5)\n    try:\n        print('Connect to the PostgreSQL database server...')\n        connection = psycopg2.connect (\n            database='pagila-data', \n            user=\"postgres\", \n            password=\"Anahi0615.\")\n        connection.autocommit = True",
+        "detail": "exercise4",
+        "documentation": {}
+    },
+    {
+        "label": "connect",
+        "kind": 2,
+        "importPath": "exercise5",
+        "description": "exercise5",
+        "peekOfCode": "def connect():\n    connection = None\n    sleep(0.8)\n    try:\n        print('Connect to the PostgreSQL database server...')\n        connection = psycopg2.connect (\n            database='PyCoders', \n            user=\"postgres\", \n            password=\"Anahi0615.\")\n        connection.autocommit = True",
+        "detail": "exercise5",
+        "documentation": {}
+    }
+]
