@@ -1,0 +1,1 @@
+SELECT * from actor;SELECT * FROM category LIMIT 1;SELECT * from address LIMIT 50;
