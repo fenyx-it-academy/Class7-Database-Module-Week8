@@ -1,0 +1,6 @@
+-In the table 'employees', each employee has an id, name and responsibility id,which is a foreign key 
+referring to the same column in table 'responsibility'.
+Each employee has also a team id , which is also a foreign key references the team id in table teams
+
+- In the table 'teams' , each team has an id , a product , a customer. 
+Last two reference the same columns in tables  products and customers respectively.
