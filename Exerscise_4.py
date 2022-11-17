@@ -19,7 +19,7 @@ def connect():
 		print('PostgreSQL database version:')
 		#cur.execute("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public'")
 		cur.execute("select*from actor")
-		# display the PostgreSQL database server version
+		
 		result1=cur.fetchall()
 
 		
